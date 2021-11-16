@@ -1,5 +1,6 @@
 
-@import './variables'; //Import varibles.sccs i style.scss.
+@import './functions'; //Import _functions.scss i style.scss
+@import './variables';//Import varibles i style.scss
 
 *{
     margin: 0;
@@ -12,7 +13,7 @@ div{
 }
 .header{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    @include text(100vh,relative); //lägger till mixin text som mini-height och postion (relative)
+    @include heightandposition(100vh,relative); //lägger till mixin text som mini-height och postion (relative)
     background: url('./Imgs/mainbackground.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -21,7 +22,7 @@ div{
     //Include header och sedan lägger till en background för "Header" även gör så att background täcker hela sidan.
 }
 .title a{
-    @include fontanddec(35px,none,black);
+    @include fontanddec(35px,none,defualt,black);
     -webkit-animation: colorchange 20s infinite alternate;
     @-webkit-keyframes colorchange{
         0%{
@@ -89,7 +90,7 @@ nav{
     //fixar nav links positions 
 }
 .nav-links ul li a{
-    @include fontanddec(13px,none,white);
+    @include fontanddec(13px,none,defualt,$color-white);
     //ändrar nav-links a färg och storlek, tarbort decoration.
 }
 .nav-links ul li::after{
@@ -101,7 +102,7 @@ nav{
     //Lägger till en hover effekt efter man (Hover nav-links ul li)
 }
 .text1{
-    @include fontanddec(defualt,defualt,center,white);//läger mixin fontanddec med default som inte används och center med white color.
+    @include fontanddec(defualt,defualt,center,$color-white);//läger mixin fontanddec med default som inte används och center med white color.
     @include background(absolute,defualt,defualt,90%);//Läger till include background som en mixin postion som absolute och width som 90%.
     @include placement(defualt,defualt,5%,defualt,30%);
     margin: auto;
@@ -127,10 +128,10 @@ nav{
  .mall1{
     @include mallposition;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    @include text(25vh,relative);            
+    @include heightandposition(25vh,relative);            
     margin: auto;
-    color: pink;
-    background-color: white;
+    color: $color-text;
+    background-color: $color-white;
     //Använder mig av include mallpostion och mall för att skapa en mall färg och margin included. Som skapar space i mellan object
     
 }
@@ -143,7 +144,7 @@ nav{
 .color1{
     @include colors;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    @include text(100vh,relative);//Include text mixn.
+    @include heightandposition(100vh,relative);//Include text mixn.
     background: url(.//Imgs/Redbackground.jpg) no-repeat center center fixed;
     @include textfix;
     //Include colors,header,textfix och lägger till background för color1 
@@ -156,7 +157,7 @@ nav{
 .color2{
     @include colors;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    @include text(100vh,relative);//Inlcude text mixin.
+    @include heightandposition(100vh,relative);//Inlcude text mixin.
     background: url(./Imgs/BlueBackground.jpg) no-repeat center center fixed;
     @include textfix;
     //Include colors,header,textfix och lägger till background för color2
@@ -169,7 +170,7 @@ nav{
 .color3{
     @include colors;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    @include text(100vh,relative);//include mixin 
+    @include heightandposition(100vh,relative);//include mixin 
     background: url(./Imgs/Yellowbackground.jpg) no-repeat center center fixed;
     @include textfix;
     //Include colors,header,textfix och lägger till background för color3
